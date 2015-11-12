@@ -1,5 +1,6 @@
 <?php
 
+use frontend\widgets\TagsWidget;
 use ijackua\lepture\Markdowneditor;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
@@ -119,9 +120,7 @@ $this->title = Yii::t('app', 'Questions');
             <button id="add-comm-01" class="btn btn-primary btn-sm pull-left">Добавить комментарий</button>
 
             <div class="q-tags">
-                <?php foreach ($question->questionTags as $tag) : ?>
-                    <?= Html::a(Html::encode($tag->name), '#', ['class' => 'btn btn-default btn-sm']) ?>
-                <?php endforeach ?>
+                <?= TagsWidget::widget(['tags' => $question->questionTags]) ?>
             </div>
 
             <div class="q-info">

@@ -1,5 +1,6 @@
 <?php
 
+use frontend\widgets\TagsWidget;
 use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
@@ -27,9 +28,7 @@ use common\helpers\Generator;
             </div>
 
             <div class="q-tags">
-                <?php foreach ($question->questionTags as $tag) : ?>
-                    <?= Html::a(Html::encode($tag->name), '#', ['class' => 'btn btn-default btn-sm']) ?>
-                <?php endforeach ?>
+                <?= TagsWidget::widget(['tags' => $question->questionTags]) ?>
             </div>
         </div>
 
